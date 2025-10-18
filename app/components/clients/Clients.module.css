@@ -19,11 +19,17 @@
   width: 100%;
   /* justify-content: center; */
   margin-right: 10px;
+  cursor: grab;
+  user-select: none;
+}
+
+.clients-list-container:active {
+  cursor: grabbing;
 }
 
 .clients-list {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 8s cubic-bezier(0.25, 0.1, 0.25, 1);
   /* margin-left: 40px; */
   /* margin-left: 82px; */
 }
@@ -33,7 +39,7 @@
   padding: 15px;
   border-radius: 10px;
   /* width: 18%;  */
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 200px;

@@ -1,6 +1,6 @@
 
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './Clients.module.css';
 
 // Importar Google Fonts
@@ -373,6 +373,10 @@ const clientsList = [
 
 const Clients = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const containerRef = useRef(null);
 
   // Lógica de navegación
   const handlePrev = () => {
@@ -389,24 +393,72 @@ const Clients = () => {
     return currentIndex * minWidth; // Mueve la lista por 163px cada vez
   };
 
+  // Funciones de arrastre
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - containerRef.current.offsetLeft);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - containerRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    if (walk > 50) {
+      handlePrev();
+      setIsDragging(false);
+    } else if (walk < -50) {
+      handleNext();
+      setIsDragging(false);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isHovered && !isDragging) {
+      const interval = setInterval(() => {
+        setCurrentIndex(prevIndex => {
+          const nextIndex = prevIndex + 3;
+          return nextIndex >= clientsList.length ? 0 : nextIndex;
+        });
+      }, 12000);
+      return () => clearInterval(interval);
+    }
+  }, [isHovered, isDragging, currentIndex]);
+
   return (
     <div className={styles['carousel-container']}>
       <div className={styles['main-tittle']}>
         <h3>Clients</h3>
       </div>
 
-      <div className={styles['carousel-wrapper']}>
+      <div 
+        className={styles['carousel-wrapper']}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <i
           className={`${styles['arrow-left']} fa fa-chevron-left`}
           onClick={handlePrev}
         ></i>
 
-        <div className={styles['clients-list-container']}>
+        <div 
+          className={styles['clients-list-container']}
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+        >
           <div
             className={styles['clients-list']}
             style={{
               transform: `translateX(-${getTranslateXInPixels()}px)`,
-              transition: 'transform 0.5s ease',
+              transition: isDragging ? 'none' : 'transform 8s cubic-bezier(0.25, 0.1, 0.25, 1)',
             }}
           >
             {clientsList.map((client, index) => (
