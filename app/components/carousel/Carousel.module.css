@@ -94,9 +94,9 @@
 .split-text-container {
     display: block;
     font-size: 4vw;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: greenyellow;
+    font-weight: 300;
+    text-transform: none;
+    color: #adff2f;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -104,14 +104,18 @@
     width: 80%;
     text-align: center;
     overflow: hidden;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    font-family: 'Georgia', serif;
 }
 
 .split-logo {
     display: block;
     font-size: 4vw;
-    font-weight: bold;
+    font-weight: 200;
     text-transform: uppercase;
-    color: white;
+    color: #ffffff;
     position: absolute;
     top: 30%;
     left: 50%;
@@ -119,6 +123,9 @@
     width: 80%;
     text-align: center;
     overflow: hidden;
+    letter-spacing: 0.3em;
+    text-shadow: 0 6px 40px rgba(0, 0, 0, 0.7);
+    opacity: 0.95;
 }
 
 @keyframes fade-top {

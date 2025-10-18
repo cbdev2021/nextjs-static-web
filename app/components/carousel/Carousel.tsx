@@ -22,17 +22,17 @@ export default function Carousel() {
     ];
 
     const textList = [
-        "Custom tools to optimize your business.",
-        "Strategic solutions aligning technology with goals.",
-        "Driving business forward with innovation.",
-        "Connecting platforms for efficient operations."
+        "Transforming Enterprise Operations Through Strategic Technology Solutions",
+        "Accelerating Digital Innovation & Competitive Market Advantage",
+        "Delivering Scalable Infrastructure & Seamless System Integration",
+        "Optimizing Business Performance Through Data-Driven Intelligence"
     ];
 
     const logoCicle = [
-        "〄M&C",
-        "〄M&C",
-        "〄M&C",
-        "〄M&C"
+        "ENTERPRISE SOLUTIONS",
+        "DIGITAL TRANSFORMATION",
+        "TECHNOLOGY CONSULTING",
+        "STRATEGIC INNOVATION"
     ];
 
     const prevImage = () => {

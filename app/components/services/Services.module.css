@@ -64,16 +64,17 @@
 }
 
 .scale-contain {
-    /* initial state*/
     display: flex;
     scale: 1;
-
-    transition: scale 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
 }
 
-.scale-contain:hover {
-    /*reaction*/
+.scale-contain.in-view {
     scale: 1.03;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media screen and (min-width: 0px) and (max-width: 610px) {
