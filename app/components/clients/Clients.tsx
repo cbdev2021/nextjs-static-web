@@ -376,7 +376,7 @@ const Clients = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Lógica de navegación
   const handlePrev = () => {
@@ -394,15 +394,15 @@ const Clients = () => {
   };
 
   // Funciones de arrastre
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
-    setStartX(e.pageX - containerRef.current.offsetLeft);
+    setStartX(e.pageX - (containerRef.current?.offsetLeft || 0));
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
     e.preventDefault();
-    const x = e.pageX - containerRef.current.offsetLeft;
+    const x = e.pageX - (containerRef.current?.offsetLeft || 0);
     const walk = (x - startX) * 2;
     if (walk > 50) {
       handlePrev();
