@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import styles from './Services.module.css';
 
 export default function Services() {
-    const serviceRefs = useRef([]);
+    const serviceRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -49,7 +49,7 @@ export default function Services() {
             }}>
                 <div 
                     className={styles['scale-contain']}
-                    ref={(el) => (serviceRefs.current[0] = el)}
+                    ref={(el) => { serviceRefs.current[0] = el; }}
                 >
                     <h3 className={styles['service-tittle']}>UX/UI User Experience Design</h3>
                     <p className={styles['service-text']}>Frontend development is responsible for building the visible aspects of web applications that users interact with directly. This includes implementing responsive design, ensuring accessibility, and creating dynamic interfaces using modern web technologies. We develop highly interactive and visually engaging experiences, focusing on delivering smooth performance and a flawless user interface across all devices.</p>
@@ -62,7 +62,7 @@ export default function Services() {
             }}>
                 <div 
                     className={styles['scale-contain']}
-                    ref={(el) => (serviceRefs.current[1] = el)}
+                    ref={(el) => { serviceRefs.current[1] = el; }}
                 >
                     <h3 className={styles['service-tittle']}>Frontend Development</h3>
                     <p className={styles['service-text']}>Custom web application development involves both frontend and backend processes. The frontend focuses on creating visually appealing and dynamic interfaces, ensuring a user-friendly experience. The backend handles server-side logic, database management, and integrations with other systems. We build web applications that are tailored to each client's specific needs, ensuring scalability, security, and efficiency for long-term success.</p>
@@ -72,7 +72,7 @@ export default function Services() {
             <div className={styles['service-card']} style={{ backgroundImage: `url(${imagesList[2]})`, backgroundSize: 'cover' }}>
                 <div 
                     className={styles['scale-contain']}
-                    ref={(el) => (serviceRefs.current[2] = el)}
+                    ref={(el) => { serviceRefs.current[2] = el; }}
                 >
                     <h3 className={styles['service-tittle']}>API REST/Web Services</h3>
                     <p className={styles['service-text']}>API development and web services allow different software applications to communicate and interact efficiently. We specialize in creating robust, scalable REST APIs and web services that enable smooth integration between various systems, ensuring seamless data exchange. Our solutions provide secure, fast, and reliable connections to enhance functionality across multiple platforms and services.</p>
@@ -82,7 +82,7 @@ export default function Services() {
             <div className={styles['service-card']} style={{ backgroundImage: `url(${imagesList[3]})` }}>
                 <div 
                     className={styles['scale-contain']}
-                    ref={(el) => (serviceRefs.current[3] = el)}
+                    ref={(el) => { serviceRefs.current[3] = el; }}
                 >
                     <h3 className={styles['service-tittle']}>Backend Development</h3>
                     <p className={styles['service-text']}>Backend development focuses on the server-side components of web applications, ensuring proper functionality, performance, and security. This involves creating the architecture, server-side logic, and database interactions that support the application's core features. Our backend solutions are designed to be scalable, secure, and optimized for performance, enabling your web applications to function smoothly and reliably.</p>
@@ -95,7 +95,7 @@ export default function Services() {
             }}>
                 <div 
                     className={styles['scale-contain']}
-                    ref={(el) => (serviceRefs.current[4] = el)}
+                    ref={(el) => { serviceRefs.current[4] = el; }}
                 >
                     <h3 className={styles['service-tittle']}>Database Design</h3>
                     <p className={styles['service-text']}>Database design is essential for structuring and organizing data efficiently to ensure fast and secure data retrieval. We specialize in designing relational and non-relational databases, optimizing them for performance and scalability. Our database solutions ensure data integrity, security, and high availability, laying a solid foundation for your web applications to grow and evolve seamlessly over time.</p>
