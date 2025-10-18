@@ -1,0 +1,123 @@
+
+ .carousel-container {
+     padding: 0;
+     position: relative;
+ } 
+
+ .image-container {
+     position: relative;
+     display: flex;
+     flex-direction: row;
+     overflow: hidden; 
+ }
+
+ .custom-image {
+     width: 50%;
+ }
+
+ .text-container {
+     height: auto;
+     width: 50%;
+     background-color: #1f1f1f;
+     margin-bottom: 4px;
+ }
+
+ .loading-bar {
+     background: greenyellow;
+     height: 5px;
+     width: 0%;
+
+    bottom: 4px;
+     position: absolute;
+     animation: grow-width 6s infinite;
+     overflow: hidden;
+
+ }
+
+ @keyframes grow-width {
+     100% {
+         width: 100%;
+     }
+ }
+
+ .arrow-container {
+     display: flex;
+     justify-content: space-between;
+     position: absolute;
+     bottom: 48%;
+     width: 100%;
+ }
+
+ .arrow-left,
+ .arrow-right {
+     font-size: 5vw;
+     color: white;
+     opacity: 0.4;
+     cursor: pointer;
+ }
+
+ .arrow-left:hover,
+ .arrow-right:hover {
+     opacity: 0.8;
+ }
+
+ .arrow-left {
+     padding-left: 3%;
+ }
+
+ .arrow-right {
+     padding-right: 3%; 
+     z-index: 2;
+ }
+
+ @keyframes fade-in {
+     0% {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ @keyframes fade-up {
+     0% {
+         opacity: 0;
+         transform: translateY(0px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(50px);
+     }
+ }
+
+ .fade-in {
+     animation: fade-in 4s ease-in-out;
+ }
+
+ .fade-up {
+     animation: fade-up 4s ease-in-out;
+ }
+
+ .split-text-container {
+     display: flex;
+     font-size: 1vw;
+     font-weight: bold;
+     text-transform: uppercase;
+     color: white;
+     position: absolute;
+     top: 45%;
+     left: 26%;
+     transform: translate(-50%, -50%);
+     width: 50%;
+     text-align: center;
+     overflow: hidden;
+ }
+
+
+ .text-part {
+     display: inline-block;
+ }

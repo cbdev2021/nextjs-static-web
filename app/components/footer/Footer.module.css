@@ -1,0 +1,66 @@
+.footer-container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, #000, #624a21);    
+    color: #fff;
+}
+
+.boxes-container {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+
+.footer-box {
+    padding: 0;
+    width: 37vh;
+}
+
+.footer-box p {
+    cursor: pointer;
+}
+
+.footer-box i {
+    cursor: pointer;
+}
+
+.year-message {
+    padding: 0;
+    text-align: center;
+}
+
+.divider {    
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    border: 1px solid #fff;
+    opacity: 0.8;
+}
+
+.follow {
+    display: flex;
+    flex-direction: column;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 5vh;
+    opacity: 0.8;    
+}
+
+.tittle {
+    padding-bottom: 15px;
+    opacity: 0.8;
+}
+
+.footer-container p {
+    opacity: 0.8;
+}

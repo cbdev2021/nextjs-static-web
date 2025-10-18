@@ -1,0 +1,437 @@
+.carousel-container {
+  position: relative;
+  padding: 20px 0;
+  /* background: #525252; */
+  padding-left: 15px;
+  padding-right: 15px;
+  background: linear-gradient(to right, #000, #525252); 
+}
+  
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients-list-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  /* justify-content: center; */
+  margin-right: 10px;
+}
+
+.clients-list {
+  display: flex;
+  transition: transform 0.5s ease;
+  /* margin-left: 40px; */
+  /* margin-left: 82px; */
+}
+
+.client-card {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  /* width: 18%;  */
+  margin: 0 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 137px;
+  min-height: 219px;  
+  user-select: none;
+
+  scale: 0.95;
+  opacity: 0.8;
+
+  transition: 
+    scale 0.8s ease-in-out,
+    opacity 0.8s ease-in-out;
+}
+
+.client-card:hover{
+  scale: 1;
+  opacity: 1;
+  
+}
+
+.vision-icon {
+  font-size: 50px;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.client-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.client-slogan {
+  font-size: 1em;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .client-card {
+    width: 50%;
+    /* 2 columnas en móvil */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .client-card {
+    width: 30%;
+    /* 3 columnas en tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .client-card {
+    width: 20%;
+    /* 5 columnas en escritorio */
+  }
+}
+
+/* button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  } */
+
+.arrow-left,
+.arrow-right {
+  /* font-size: 3vw; */
+  font-size: 5vh;
+  /* color: rgb(34, 13, 13); */
+  color: #f0f0f0;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  opacity: 0.8;
+}
+
+.main-tittle {
+  /* background: greenyellow; */
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  font-size: 3vh;
+  /* padding-bottom: 10px;
+  margin-top: -20px; */
+  padding-bottom: 0px;
+  margin-top: -10px;
+
+  color: #f0f0f0;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+/* .carousel-container {
+    position: relative;
+    padding: 20px 0;
+  }
+  
+  .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .clients-list-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .clients-list {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+  
+  .client-card {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    width: 18%; 
+    margin: 0 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vision-icon {
+    font-size: 50px;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+  
+  .client-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .client-slogan {
+    font-size: 1em;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+ 
+  @media (max-width: 600px) {
+    .client-card {
+      width: 50%; 
+    }
+  }
+  
+  @media (min-width: 600px) and (max-width: 1024px) {
+    .client-card {
+      width: 30%; 
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .client-card {
+      width: 20%; 
+    }
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+   */
+
+/* .carousel-container {
+    padding: 0;
+    position: relative;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.mision {
+    border: 2px solid yellow;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #adff2f;
+    margin: 10px;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 48%;
+    width: 100%;
+}
+
+.arrow-left,
+.arrow-right {
+    font-size: 5vw;
+    color: white;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+    opacity: 0.8;
+}
+
+.arrow-left {
+    padding-left: 3%;
+}
+
+.arrow-right {
+    padding-right: 3%;
+}
+
+
+@media (max-width: 600px) {
+    .mision {
+        width: 80%; 
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .mision {
+        width: 45%; 
+    }
+}
+
+@media (min-width: 1024px) {
+    .mision {
+        width: 25%; 
+    }
+} */
+
+
+/* .carousel-container {
+    padding: 0;
+    position: relative;
+
+}
+
+.image-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+}
+
+.custom-image {
+    width: 100%;
+    filter: brightness(0.7);
+}
+
+.loading-bar {
+    height: 5px;
+    width: 0%;
+    position: absolute;
+    animation: grow-width 8s infinite;
+    overflow: hidden;
+    background: orange;
+    bottom: 0px;
+}
+
+@keyframes grow-width {
+    100% {
+        width: 100%;
+    }
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 48%;
+    width: 100%;
+}
+
+.arrow-left,
+.arrow-right {
+    font-size: 5vw;
+    color: white;
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+    opacity: 0.8;
+}
+
+.arrow-left {
+    padding-left: 3%;
+}
+
+.arrow-right {
+    padding-right: 3%;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(90%);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fade-in 4s ease-in-out;
+}
+
+
+.split-text-container {
+    display: block;
+    font-size: 4vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: greenyellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.split-logo {
+    display: block;
+    font-size: 4vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+}
+
+@keyframes fade-top {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-top {
+    animation: fade-top 4s ease-in-out;
+}
+
+.text-part {
+    display: inline-block;
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    10% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+}
+
+@keyframes mymove {
+    from {
+        top: 60%;
+    }
+
+    to {
+        top: 0%;
+    }
+} */

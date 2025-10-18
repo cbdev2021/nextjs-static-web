@@ -1,0 +1,191 @@
+  .core-values-container {
+      padding: 0%;
+      border-color: #ff0;
+      padding-top: 10px;
+      gap: 15px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+      transition: box-shadow 1.5s ease-in-out;
+      padding: 15px;
+      color: #525252;
+      user-select: none;
+  }
+
+  .core-values-container:hover {
+      box-shadow: inset 0px 4px 20px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  .us {
+      border-color: black;
+      display: flex;
+      flex-direction: column;
+      border-color: 2x solid yellow;
+      background-color: aquamarine;
+      width: 50vh;
+      text-align: center;
+      padding: 55px;
+      border-radius: 10px;
+  }
+
+  .us-icon {
+      font-size: 6vh;
+  }
+
+  .us-title {
+      font-size: 3vh;
+  }
+
+  .us-text {
+      position: relative;
+      top: 9%;
+  }
+
+  .mision {
+      border-color: black;
+      display: flex;
+      flex-direction: column;
+      border-color: 2x solid yellow;
+      width: 50vh;
+      text-align: center;
+      padding: 55px;
+      border-radius: 10px;
+      background-color: #adff2f;
+  }
+
+  .mision-icon {
+      font-size: 6vh;
+  }
+
+  .mision-title {
+      font-size: 3vh;
+  }
+
+  .mision-text {
+      position: relative;
+      top: 9%;
+  }
+
+  .vision {
+      border-color: black;
+      display: flex;
+      flex-direction: column;
+      border-color: 2x solid yellow;
+
+      width: 50vh;
+
+      text-align: center;
+      padding: 55px;
+      border-radius: 10px;
+
+      background-color: #fff0bd;
+  }
+
+  .vision-icon {
+      font-size: 6vh;
+  }
+
+  .vision-title {
+      font-size: 3vh;
+  }
+
+  .vision-text {
+      position: relative;
+      top: 9%;
+  }
+
+  .us,
+  .mision,
+  .vision {
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transform: scale(1);
+      transition:
+          box-shadow 0.5s ease-in-out,
+          transform 0.5s ease-in-out;
+
+
+      view-timeline-name: --image;
+      view-timeline-axis: block;
+      animation-timeline: --image;
+      animation-name: show;
+      animation-range: entry 40% cover 50%;
+      animation-fill-mode: both;
+  }
+
+  .us:hover,
+  .mision:hover,
+  .vision:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: scale(1.03);
+  }
+
+
+  /* @keyframes show {
+      from {
+          opacity: 0;
+          scale: 25%;
+      }
+
+      to {
+          opacity: 1;
+          scale: 100%;
+      }
+  }
+
+
+  .img-style {
+      view-timeline-name: --image;
+      view-timeline-axis: block;
+      animation-timeline: --image;
+      animation-name: show;
+      animation-range: entry 40% cover 50%;
+      animation-fill-mode: both;
+
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      height: auto;
+      justify-content: center;
+      margin: auto;
+      padding: 15px; 
+  } */
+ 
+
+   @keyframes show {
+    from {
+      opacity: 0;
+      transform: scale(0.25);   
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale(1);   
+    }
+  }
+  
+  /*
+  .img-style { 
+    opacity: 0;
+    transform: scale(0.25);
+     
+    view-timeline-name: --image;
+    view-timeline-axis: ;
+    animation-timeline: --image;
+    animation-name: show;
+    animation-range: entry 40% cover 50%;  
+    animation-fill-mode: forwards;  
+    animation-iteration-count: 1;  
+  
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+    margin: auto;
+    padding: 15px;
+  } */
+  
