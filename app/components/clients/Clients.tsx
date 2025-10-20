@@ -377,21 +377,27 @@ const Clients = () => {
   const [startX, setStartX] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isManualNavigation, setIsManualNavigation] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   // Lógica de navegación
   const handlePrev = () => {
     setCurrentIndex(prevIndex => (prevIndex === 0 ? clientsList.length - 1 : prevIndex - 1));
+    setIsManualNavigation(true);
   };
 
   const handleNext = () => {
     setCurrentIndex(prevIndex => (prevIndex === clientsList.length - 1 ? 0 : prevIndex + 1));
+    setIsManualNavigation(true);
   };
 
   // Calcular el desplazamiento en píxeles basado en un ancho fijo
   const getTranslateXInPixels = () => {
-    const minWidth = 157; // El ancho mínimo de cada elemento
+    // const minWidth = 157; // El ancho mínimo de cada elemento
+    const minWidth = 148; // El ancho mínimo de cada elemento
+
+
     return currentIndex * minWidth; // Mueve la lista por 163px cada vez
   };
 
@@ -427,10 +433,21 @@ const Clients = () => {
           const nextIndex = prevIndex + 3;
           return nextIndex >= clientsList.length ? 0 : nextIndex;
         });
+        setIsManualNavigation(false);
       }, 12000);
       return () => clearInterval(interval);
     }
   }, [isHovered, isDragging, currentIndex]);
+
+  // Reset manual navigation flag after transition
+  useEffect(() => {
+    if (isManualNavigation) {
+      const timer = setTimeout(() => {
+        setIsManualNavigation(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isManualNavigation]);
 
   // Scroll reveal functionality
   useEffect(() => {
@@ -478,7 +495,7 @@ const Clients = () => {
             className={styles['clients-list']}
             style={{
               transform: `translateX(-${getTranslateXInPixels()}px)`,
-              transition: isDragging ? 'none' : 'transform 8s cubic-bezier(0.25, 0.1, 0.25, 1)',
+              transition: isDragging ? 'none' : isManualNavigation ? 'transform 0.5s ease' : 'transform 8s cubic-bezier(0.25, 0.1, 0.25, 1)',
             }}
           >
             {clientsList.map((client, index) => (

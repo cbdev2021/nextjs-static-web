@@ -79,7 +79,7 @@ export default function Contact() {
                         </p>
                         <p style={{ borderBottom: '2px solid #525252', paddingBottom: '10px', display: 'flex', alignItems: 'center' }}>
                             <i className="fa fa-map-marker" style={{ width: '30px', textAlign: 'center' }}></i>
-                            <span style={{ paddingLeft: '5px' }}>70 Street, St. Lewis, Texas.</span>
+                            <span style={{ paddingLeft: '5px' }}>2200 Pine Street, Denton, Texas</span>
                         </p>
                     </div>       
                 </div>
