@@ -75,3 +75,29 @@ a {
     color-scheme: dark;
   }
 } */
+
+/* Scroll Reveal Effects */
+.scroll-reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+}
+
+.fade-in-down {
+  transform: translateY(-40px);
+}
+
+.fade-in-down.visible {
+  transform: translateY(0);
+}
+
+.fade-in-up {
+  transform: translateY(40px);
+}
+
+.fade-in-up.visible {
+  transform: translateY(0);
+}

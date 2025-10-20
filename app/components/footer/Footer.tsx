@@ -1,8 +1,29 @@
+'use client';
+import { useEffect, useState, useRef } from 'react';
 import styles from './Footer.module.css'
 
 export default function Footer() {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
     return (
-        <div className={styles['footer-container']}>
+        <div ref={ref} className={`${styles['footer-container']} scroll-reveal fade-in-up ${isVisible ? 'visible' : ''}`}>
             <div className={styles['boxes-container']}>
                 <div className={styles['footer-box']}>
                     <h3 className={styles['tittle']}>About Us</h3>

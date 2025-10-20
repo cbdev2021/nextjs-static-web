@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './Carousel.module.css';
 import Image from 'next/image';
 import 'font-awesome/css/font-awesome.min.css';
@@ -10,8 +10,9 @@ export default function Carousel() {
     const [currentLogoCicleIndex, setCurrentLogoCicleIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const [reloadBar, setReloadBar] = useState(false);
-    // const [intervalId, setIntervalId] = useState(null);
-    const [intervalId, setIntervalId] = useState<number | NodeJS.Timeout>(0);  // Cambiado el tipo de estado
+    const [intervalId, setIntervalId] = useState<number | NodeJS.Timeout>(0);
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
 
 
     const imagesList = [
@@ -62,14 +63,28 @@ export default function Carousel() {
     useEffect(() => {
         const interval = setInterval(() => {
             if (!isAnimating) {
-                nextImage();  // Only run nextImage if not animating
+                nextImage();
             }
         }, 8000);
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
 
         setIntervalId(interval);
 
         return () => {
             clearInterval(interval);
+            observer.disconnect();
         };
     }, [isAnimating]);
 
@@ -88,7 +103,7 @@ export default function Carousel() {
     }, [reloadBar]);
 
     return (
-        <div className={styles['carousel-container']}>
+        <div ref={ref} className={`${styles['carousel-container']} scroll-reveal fade-in-down ${isVisible ? 'visible' : ''}`}>
             <div className={styles['image-container']}>
                 <div className={styles['custom-image']}>
                     <div
