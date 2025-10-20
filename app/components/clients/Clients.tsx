@@ -542,7 +542,7 @@ const Clients = () => {
                   color: client.sloganTextColor, // Usar el color del slogan
                   // fontStyle: 'italic',
                   position: 'absolute',
-                  top: client.sloganTop, // Posición top personalizada
+                  top: client.sloganTop, 
                   left: client.sloganLeft, // Posición left personalizada
                   transform: 'translateX(-50%)',
                 }}>
