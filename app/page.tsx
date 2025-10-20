@@ -23,9 +23,9 @@ export default function Home() {
       <div id="services">
         <Services />
       </div>
-      <div id="clients">
+      {/* <div id="clients">
         <Clients />
-      </div>
+      </div> */}
       <div id="contact">
         <Contact />
       </div>
