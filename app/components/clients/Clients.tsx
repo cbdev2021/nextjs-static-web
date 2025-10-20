@@ -376,7 +376,9 @@ const Clients = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   // Lógica de navegación
   const handlePrev = () => {
@@ -430,8 +432,26 @@ const Clients = () => {
     }
   }, [isHovered, isDragging, currentIndex]);
 
+  // Scroll reveal functionality
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={styles['carousel-container']}>
+    <div ref={ref} className={`${styles['carousel-container']} scroll-reveal fade-in-up ${isVisible ? 'visible' : ''}`}>
       <div className={styles['main-tittle']}>
         <h3>Clients</h3>
       </div>

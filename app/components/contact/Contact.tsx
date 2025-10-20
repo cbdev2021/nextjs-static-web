@@ -4,10 +4,9 @@ import Image from 'next/image';
 import styles from './Contact.module.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Contact() {
-
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -15,9 +14,28 @@ export default function Contact() {
         subject: '',
         message: '',
     });
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <div className={styles['contact-container']}>
+        <div ref={ref} className={`${styles['contact-container']} scroll-reveal fade-in-up ${isVisible ? 'visible' : ''}`}>
             <div className={styles['upper']}>
                 <h3 className={styles['tittle']}>Get your first consultation 100% free! Contact us!</h3>
                 <i className={`${styles['icon']} fa fa-users`}></i>
